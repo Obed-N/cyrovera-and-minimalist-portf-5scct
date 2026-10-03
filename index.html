@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Architect | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="font-bold text-xl tracking-tighter">ARCHITECT.</span>
+            <button id="menu-btn" class="md:hidden"><i data-lucide="menu"></i></button>
+            <div id="nav-links" class="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
+                <a href="#work" class="hover:text-white transition">Work</a>
+                <a href="#stack" class="hover:text-white transition">Stack</a>
+                <button onclick="toggleModal(true)" class="text-white bg-zinc-800 px-4 py-2 rounded-full hover:bg-zinc-700">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-32 pb-20 px-6 max-w-5xl mx-auto">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">I build systems that do the work for you.</h1>
+        <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mb-10">AI automation specialist. I connect your apps, clean your data, and remove the manual tasks that kill your productivity.</p>
+        <a href="#work" class="inline-flex items-center gap-2 border border-zinc-700 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+            See my projects <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+    </header>
+
+    <!-- Projects -->
+    <section id="work" class="py-20 px-6 max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12">Selected Work</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+                <i data-lucide="database" class="mb-4 text-emerald-500"></i>
+                <h3 class="text-xl font-bold mb-2">Automated Data Pipeline</h3>
+                <p class="text-zinc-400 text-sm">Built a system that pulls raw client data, cleans it with LLMs, and updates the CRM automatically. Saved 20+ hours a week.</p>
+            </div>
+            <div class="bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
+                <i data-lucide="bot" class="mb-4 text-blue-500"></i>
+                <h3 class="text-xl font-bold mb-2">Support AI Agent</h3>
+                <p class="text-zinc-400 text-sm">Deployed a custom support bot that resolves 70% of customer tickets without human input, integrated directly into Slack.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 px-6">
+        <div class="bg-zinc-900 p-8 rounded-2xl w-full max-w-md border border-zinc-800">
+            <div class="flex justify-between mb-6">
+                <h3 class="text-xl font-bold">Let's talk</h3>
+                <button onclick="toggleModal(false)"><i data-lucide="x"></i></button>
+            </div>
+            <form id="contact-form" class="space-y-4">
+                <input type="email" placeholder="Your email" class="w-full bg-zinc-800 p-3 rounded-lg outline-none border border-zinc-700">
+                <textarea placeholder="What do you need automated?" class="w-full bg-zinc-800 p-3 rounded-lg outline-none border border-zinc-700 h-32"></textarea>
+                <button type="submit" class="w-full bg-white text-black font-bold py-3 rounded-lg">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="py-10 text-center text-zinc-600 text-sm">
+        &copy; 2024 AI Automation Architect. Built for results.
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        menuBtn.addEventListener('click', () => navLinks.classList.toggle('hidden'));
+
+        // Modal Logic
+        function toggleModal(show) {
+            document.getElementById('modal').style.display = show ? 'flex' : 'none';
+        }
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message received. I will reach out shortly.');
+            toggleModal(false);
+        });
+    </script>
+</body>
+</html>
